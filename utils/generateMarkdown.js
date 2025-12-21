@@ -5,7 +5,8 @@
 // - A function that returns a license badge based on which license is passed in
 // - A function that returns a license link for the Table of Contents
 // - A function that returns the license section text
-//
+
+//Object of license options to reduce length of related functions
 const licenseOptions = {
   None: {
     badge:'',
@@ -46,32 +47,26 @@ function renderLicenseBadge(license) {
     return licenseOptions[license].badge;
   }
 };
-//   switch (license) {
-//     case 'None': 
-//       return '';
-//     case 'MIT': 
-//       return('![MIT License Badge](https://img.shields.io/badge/License-MIT-blue)');
-//     case 'Apache': 
-//       return('![Apache License Badge](https://img.shields.io/badge/License-Apache-blue)');
-//     case 'GNU GPLv3': 
-//       return('![GNU GPLv3 License Badge](https://img.shields.io/badge/License-GNU_GPLv3-blue)');
-//     case 'BSD': 
-//       return('![BSD License Badge](https://img.shields.io/badge/License-BSD-blue)');
-//     case 'Mozilla': 
-//       return('![Mozilla License Badge](https://img.shields.io/badge/License-Mozilla-blue)');
-//     default:
-//       return('');
-//   }
-//};
 
+//Creates link to license section for table of contents
 function renderLicenseLink(license) {
-//   // TODO: If there is a license, return the Table of Contents link for License.
+  if (license === 'None' || !license) {
+    return '';
+  } else {
+    return licenseOptions[license].tocLink
+  }
+};
+//Creates the text for the license section fo the markdown
+function renderLicenseSection(license) {
+  if (license === 'None' || !license) {
+    return '';
+  } else {
+    return `## License
 
-}
-//
-// function renderLicenseSection(license) {
-//   // TODO: If there is a license, return the License section text.
-// }
+This project is licensed under the terms of the **${license} License**. Try [here](${licenseOptions[license].url}), for more information on the license.
+`
+  }
+};
 
 // TODO: Complete this function to generate the README markdown string
 // using the data collected from inquirer.
