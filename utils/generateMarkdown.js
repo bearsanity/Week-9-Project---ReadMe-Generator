@@ -64,6 +64,8 @@ function renderLicenseSection(license) {
     return `## License
 
 This project is licensed under the terms of the **${license} License**. Try [here](${licenseOptions[license].url}), for more information on the license.
+
+
 `
   }
 };
@@ -89,16 +91,61 @@ function generateMarkdown(data) {
   // TODO: Use template literals to build the README.md content.
   // Hint: You can call your license helper functions here.
 
-  return `# ${data.title}
+  return `# ${data.projectTitle}
 
-<!-- TODO: Add license badge here -->
+
+${renderLicenseBadge(data.license)}
+
 
 ## Description
 
-${data.description}
+${data.projectDescription}
 
-<!-- TODO: Add Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions sections -->
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+${renderLicenseLink(data.license)}
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+
+## Installation
+
+${data.installation}
+
+
+## Usage
+
+${data.usage}
+
+
+## Credits
+
+${data.credits}
+
+
+${renderLicenseSection(data.license)}
+## Contributing
+
+${data.contribution}
+
+
+## Tests
+
+${data.tests}
+
+
+## Questions
+
+If you have any questions - contact me through any of these:
+
+Github: ${data.github}
+
+Email: ${data.email}
 `;
 }
 

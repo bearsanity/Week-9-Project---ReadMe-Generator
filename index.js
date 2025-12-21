@@ -62,8 +62,8 @@ const questions = [
   },
   {
     type:'input',
-    name:'test',
-    message:'Please provide the test command.'
+    name:'tests',
+    message:'Please provide any test commands.'
   },
   {
     type:'input',
@@ -75,6 +75,11 @@ const questions = [
     name:'contribution',
     message:'Please provide the contribution guidelines.'
   },
+  {
+    type:'input',
+    name:'credits',
+    message:'Please list anything you would like to credit'
+  }
 ];
 
 // TODO: Create a function to write the README file.
@@ -83,7 +88,7 @@ const questions = [
 //const filename = `${data.projectDescription.toLowerCase().replace(/ /g, '')}.json`;
 function writeToFile(filename, data) {
   // TODO: Implement this function so it writes "data" to "fileName"
-  fs.writeFile(filename, JSON.stringify(data, null, 2), err =>{
+  fs.writeFile(filename, data, err =>{
           if(err) {
               console.log('Error:', err);
           };
@@ -100,7 +105,7 @@ function initializeApp() {
     .prompt(questions)
     .then(data => {
       const filename = `${data.projectTitle.toLowerCase().replace(/ /g, '')}.md`;
-      writeToFile(filename, data)
+      writeToFile(filename, generateMarkdown(data))
     })
     .catch(err => console.error('Prompt error: ', err))
   };
