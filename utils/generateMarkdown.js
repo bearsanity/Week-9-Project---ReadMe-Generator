@@ -6,19 +6,31 @@
 // - A function that returns a license link for the Table of Contents
 // - A function that returns the license section text
 //
-// If there is no license (e.g., the user selects "None"), these helpers should
-// return an empty string so that nothing is displayed in the README for license.
 
-// Example stubs:
+//Gets the link to embed the relevant badge based on the choice the user made
+function renderLicenseBadge(license) {
+  switch (license) {
+    case 'None': 
+      return '';
+    case 'MIT': 
+      return('![MIT License Badge](https://img.shields.io/badge/MIT-License-blue)');
+    case 'Apache': 
+      return('![Apache License Badge](https://img.shields.io/badge/Apache-License-blue)');
+    case 'GNU GPLv3': 
+      return('![GNU GPLv3 License Badge](https://img.shields.io/badge/GNU_GPLv3-License-blue)');
+    case 'BSD': 
+      return('![BSD License Badge](https://img.shields.io/badge/BSD-License-blue)');
+    case 'Mozilla': 
+      return('![Mozilla License Badge](https://img.shields.io/badge/Mozilla-License-blue)');
+    default:
+      return('');
+  }
+}
 //
-// function renderLicenseBadge(license) {
-//   // TODO: If there is a license, return the badge markdown.
-//   // If "None", return an empty string.
-// }
-//
-// function renderLicenseLink(license) {
+function renderLicenseLink(license) {
 //   // TODO: If there is a license, return the Table of Contents link for License.
-// }
+
+}
 //
 // function renderLicenseSection(license) {
 //   // TODO: If there is a license, return the License section text.
