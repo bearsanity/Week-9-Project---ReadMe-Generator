@@ -1,10 +1,3 @@
-// utils/generateMarkdown.js (Unsolved Starter)
-
-// TODO: Create helper functions for handling the license section of the README.
-// You will likely need:
-// - A function that returns a license badge based on which license is passed in
-// - A function that returns a license link for the Table of Contents
-// - A function that returns the license section text
 
 //Object of license options to reduce length of related functions
 const licenseOptions = {
@@ -70,27 +63,8 @@ This project is licensed under the terms of the **${license} License**. Try [her
   }
 };
 
-// TODO: Complete this function to generate the README markdown string
-// using the data collected from inquirer.
-// The generated README should include sections for:
-//
-// - Title
-// - License badge (if any)
-// - Description
-// - Table of Contents
-// - Installation
-// - Usage
-// - License (if any)
-// - Contributing
-// - Tests
-// - Questions (GitHub + email)
-//
-// Use the acceptance criteria and the professional README guide as a reference.
-
+//Generates the Markdown file using the helper functions
 function generateMarkdown(data) {
-  // TODO: Use template literals to build the README.md content.
-  // Hint: You can call your license helper functions here.
-
   return `# ${data.projectTitle}
 
 

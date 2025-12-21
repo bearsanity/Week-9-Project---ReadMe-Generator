@@ -1,6 +1,5 @@
-// 02-Challenge — Professional README Generator (Unsolved Starter)
+// 02-Challenge — Professional README Generator
 
-// TODO: Import the required packages:
 // - fs for writing files
 // - inquirer for collecting user input
 // - the generateMarkdown function from ./utils/generateMarkdown
@@ -9,25 +8,8 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
-// TODO: Create an array of questions for user input.
-// Each question should collect part of the README content:
-// - GitHub username
-// - Email address
-// - Project title
-// - Project description
-// - License (choose from a list)
-// - Installation command
-// - Test command
-// - Usage information
-// - Contribution guidelines
-//
-// Example shape of a question:
-// {
-//   type: "input",
-//   name: "github",
-//   message: "What is your GitHub username?",
-// }
 
+//Questions to get neccesary data to create ReadMe
 const questions = [
   {
     type: 'input',
@@ -82,12 +64,8 @@ const questions = [
   }
 ];
 
-// TODO: Create a function to write the README file.
-// It should take a file name and the data to write.
-// Use fs.writeFile or fs.writeFileSync inside this function.
-//const filename = `${data.projectDescription.toLowerCase().replace(/ /g, '')}.json`;
+//Used to create and name the md file, then send the result of the generateMarkdown function to said md file
 function writeToFile(filename, data) {
-  // TODO: Implement this function so it writes "data" to "fileName"
   fs.writeFile(filename, data, err =>{
           if(err) {
               console.log('Error:', err);
@@ -96,10 +74,7 @@ function writeToFile(filename, data) {
       })
 };
 
-// TODO: Create a function to initialize the app.
-// Inside it:
-// 1. Prompt the user with inquirer.prompt(questions)
-// 2.
+//Asks neccesary questions then handles the data and creates the MD file
 function initializeApp() {
   inquirer
     .prompt(questions)
