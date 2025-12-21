@@ -6,27 +6,64 @@
 // - A function that returns a license link for the Table of Contents
 // - A function that returns the license section text
 //
-
+const licenseOptions = {
+  None: {
+    badge:'',
+    tocLink:'',
+    url:''
+  },
+  MIT: {
+    badge:'![MIT License Badge](https://img.shields.io/badge/License-MIT-blue)',
+    tocLink:'- [License](#License)',
+    url:'https://opensource.org/licenses/MIT'
+  },
+  Apache: {
+    badge:'![Apache License Badge](https://img.shields.io/badge/License-Apache-blue)',
+    tocLink: '- [License](#License)',
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  },
+  "GNU GPLv3": {
+    badge:'![GNU GPLv3 License Badge](https://img.shields.io/badge/License-GNU_GPLv3-blue)',
+    tocLink: '- [License](#License)',
+    url: 'https://www.gnu.org/licenses/gpl-3.0.en.html'
+  },
+  BSD: {
+    badge: '![BSD License Badge](https://img.shields.io/badge/License-BSD-blue)',
+    tocLink: '- [License](#License)',
+    url: 'https://opensource.org/licenses/BSD-3-Clause'
+  },
+  Mozilla: {
+    badge: '![Mozilla License Badge](https://img.shields.io/badge/License-Mozilla-blue)',
+    tocLink: '- [License](#License)',
+    url: 'https://www.mozilla.org/en-US/MPL/2.0/'
+  }
+};
 //Gets the link to embed the relevant badge based on the choice the user made
 function renderLicenseBadge(license) {
-  switch (license) {
-    case 'None': 
-      return '';
-    case 'MIT': 
-      return('![MIT License Badge](https://img.shields.io/badge/MIT-License-blue)');
-    case 'Apache': 
-      return('![Apache License Badge](https://img.shields.io/badge/Apache-License-blue)');
-    case 'GNU GPLv3': 
-      return('![GNU GPLv3 License Badge](https://img.shields.io/badge/GNU_GPLv3-License-blue)');
-    case 'BSD': 
-      return('![BSD License Badge](https://img.shields.io/badge/BSD-License-blue)');
-    case 'Mozilla': 
-      return('![Mozilla License Badge](https://img.shields.io/badge/Mozilla-License-blue)');
-    default:
-      return('');
+  if (license === 'None' || !license) {
+    return '';
+  } else {
+    return licenseOptions[license].badge;
   }
-}
-//
+};
+//   switch (license) {
+//     case 'None': 
+//       return '';
+//     case 'MIT': 
+//       return('![MIT License Badge](https://img.shields.io/badge/License-MIT-blue)');
+//     case 'Apache': 
+//       return('![Apache License Badge](https://img.shields.io/badge/License-Apache-blue)');
+//     case 'GNU GPLv3': 
+//       return('![GNU GPLv3 License Badge](https://img.shields.io/badge/License-GNU_GPLv3-blue)');
+//     case 'BSD': 
+//       return('![BSD License Badge](https://img.shields.io/badge/License-BSD-blue)');
+//     case 'Mozilla': 
+//       return('![Mozilla License Badge](https://img.shields.io/badge/License-Mozilla-blue)');
+//     default:
+//       return('');
+//   }
+//};
+
 function renderLicenseLink(license) {
 //   // TODO: If there is a license, return the Table of Contents link for License.
 
