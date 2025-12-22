@@ -117,7 +117,7 @@ ${data.tests}
 
 If you have any questions - contact me through any of these:
 
-Github: ${data.github}
+Github: @${data.github}
 
 Email: ${data.email}
 `;

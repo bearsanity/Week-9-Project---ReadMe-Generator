@@ -60,7 +60,7 @@ const questions = [
   {
     type:'input',
     name:'credits',
-    message:'Please list anything you would like to credit'
+    message:'Please list any credits you would like to include.'
   }
 ];
 
@@ -79,7 +79,7 @@ function initializeApp() {
   inquirer
     .prompt(questions)
     .then(data => {
-      const filename = `${data.projectTitle.toLowerCase().replace(/ /g, '')}.md`;
+      const filename = `README.md`;
       writeToFile(filename, generateMarkdown(data))
     })
     .catch(err => console.error('Prompt error: ', err))
